@@ -1,0 +1,20 @@
+SET NOCOUNT ON;
+
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+Select
+    cs.customer_id,
+    cs.name,
+    CONCAT('+', cc.country_code, cs.phone_number)
+From
+    country_codes as cc
+        join 
+            customers as cs
+        on
+            cc.country = cs.country
+Order by
+    cs.customer_id ASC
+
+go
